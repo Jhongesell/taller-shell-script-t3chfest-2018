@@ -34,10 +34,10 @@ PRIMER_PARAMETRO=$1
 while [ -n "$PRIMER_PARAMETRO" ]; do
 
     # ¿cómo ejecutamos un comando (who | egrep ^$PRIMER_PARAMETRO' ') y la salida se la asignamos a una variable? 
-    ESTA_CONECTADO=
+    ESTA_CONECTADO=`who | egrep ^$PRIMER_PARAMETRO' '`
 
     # ¿cómo comprobamos que una cadena está vacía?
-    if [ "$ESTA_CONECTADO" ]; then
+    if [ -z "$ESTA_CONECTADO" ]; then
         echo "El usuario $PRIMER_PARAMETRO no está conectado"
         ayuda
         exit 2

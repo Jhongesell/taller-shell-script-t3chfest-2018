@@ -34,7 +34,7 @@ PRIMER_PARAMETRO=$1
 while [ -n "$PRIMER_PARAMETRO" ]; do
 
     # ¿cómo llamamos a otro script (varias opciones)?
-    ESTA_CONECTADO=
+    ESTA_CONECTADO=`./07-usuario-conectado $PRIMER_PARAMETRO`
 
     if [ "$ESTA_CONECTADO" == "NO" ]; then
         echo "El usuario $1 no está conectado"

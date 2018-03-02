@@ -14,10 +14,10 @@ MENSAJE="Hola"
 ES_PRIMERO=1
 
 # ¿cómo cogemos el valor del primer parámetro?
-PRIMER_PARAMETRO=
+PRIMER_PARAMETRO=$1
 
 # ¿cómo comprobamos que una cadena no está vacía?
-while [ "$PRIMER_PARAMETRO" ]; do
+while [ -n "$PRIMER_PARAMETRO" ]; do
 
     if [ $ES_PRIMERO -eq 1 ]; then
         MENSAJE="$MENSAJE $PRIMER_PARAMETRO"
@@ -27,7 +27,8 @@ while [ "$PRIMER_PARAMETRO" ]; do
     fi
 
     # ¿cómo pasamos al siguiente parámetro?
-
+    shift
+    PRIMER_PARAMETRO=$1
 done
 
 echo $MENSAJE"!"

@@ -8,6 +8,7 @@
 function ayuda() {
 
 # ¿cómo mostramos el siguiente texto en pantalla sin utilizar 'echo' en cada línea?
+cat << ETIQUETA
 SYNOPSIS
     $0 NOMBRE_1 [NOMBRE_2] ... [NOMBRE_N]
 
@@ -16,13 +17,14 @@ DESCRIPCION
 
 CÓDIGOS DE RETORNO
     1 Si el número de parámetros es menor que 1
-
+ETIQUETA
 }
 
 NUMERO_DE_PARAMETROS=$#
 if [ $NUMERO_DE_PARAMETROS -le 0 ]; then
     echo "Hay que introducir al menos un parámetro."
     # ¿cómo llamamos a la función de ayuda?
+    ayuda
     exit 1
 fi
 
